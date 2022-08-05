@@ -4,7 +4,7 @@
 int sensorState = 0;
 
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
-// LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 Servo FRservo, FLservo, BRservo, BLservo;
 const int Rbutton = A0, Lbutton = A1, Bbutton = A2, Fbutton = A3, Mbutton = A4;
@@ -21,19 +21,12 @@ void setup() {
   BLservo.attach(10);
   servoReset();
   analogWrite(A5, HIGH);
-  /*
   lcd.begin(16, 2);
   lcd.clear();
   lcd.setCursor(0, 0);
-  */
 }
 
 void loop() { 
-
-  // start timer
-  // display time on screen
-
-  /*
   while (!play) {
     lcd.setCursor(0, 0);
     lcd.print("Press the center");
@@ -45,14 +38,11 @@ void loop() {
     }
     lcd.clear();
   }
-  */
   
   Rstate = analogRead(Rbutton);
-  /*
   Lstate = analogRead(Lbutton);
   Bstate = analogRead(Bbutton);
   Fstate = analogRead(Fbutton);
-  */
   sensorState = analogRead(A5);
   
   if (Rstate > pressedVal) {
